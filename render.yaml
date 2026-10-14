@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: studyvertex-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      # Set these two yourself in the Render dashboard after the first deploy:
+      # APP_KEY      -> run "php artisan key:generate --show" locally and paste the output
+      # APP_URL      -> the https://... URL Render gives this service
